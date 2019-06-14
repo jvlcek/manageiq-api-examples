@@ -5,7 +5,7 @@ require 'net/http'
 require 'openssl'
 require 'uri'
 
-uri = URI.parse("https://#{ENV['MIQ']}/api/actions/46")
+uri = URI.parse("https://#{ENV['MIQ']}/api/users/18")
 
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true

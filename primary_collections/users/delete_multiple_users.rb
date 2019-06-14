@@ -5,7 +5,7 @@ require 'net/http'
 require 'openssl'
 require 'uri'
 
-uri = URI.parse("https://#{ENV['MIQ']}/api/actions")
+uri = URI.parse("https://#{ENV['MIQ']}/api/users")
 
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
@@ -19,11 +19,26 @@ request_hash =
   "action" => "delete",
   "resources" => [
     {
-      "href"        => "https://#{ENV['MIQ']}/api/actions/44",
+      "href"        => "https://#{ENV['MIQ']}/api/users/19",
     },
     {
-      "href"        => "https://#{ENV['MIQ']}/api/actions/45",
-    }
+      "href"        => "https://#{ENV['MIQ']}/api/users/20",
+    },
+    {
+      "href"        => "https://#{ENV['MIQ']}/api/users/21",
+    },
+    {
+      "href"        => "https://#{ENV['MIQ']}/api/users/22",
+    },
+    {
+      "href"        => "https://#{ENV['MIQ']}/api/users/23",
+    },
+    {
+      "href"        => "https://#{ENV['MIQ']}/api/users/24",
+    },
+    {
+      "href"        => "https://#{ENV['MIQ']}/api/users/25",
+    },
   ]
 }
 
