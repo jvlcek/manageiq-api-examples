@@ -5,7 +5,7 @@ require 'net/http'
 require 'openssl'
 require 'uri'
 
-uri = URI.parse("https://#{ENV['MIQ']}/api/users")
+uri = URI.parse("https://#{ENV['MIQ']}/api/groups")
 
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
@@ -28,11 +28,5 @@ JSON.parse(response.body.strip)["resources"].each do |resource|
 
   response = http.request(request)
 
-  puts uri.path.ljust(20) +
-       JSON.parse(response.body.strip)["userid"].ljust(45)  +
-       "current_group_id: " +
-       JSON.parse(response.body.strip)["current_group_id"]
+  puts uri.path.ljust(20) + JSON.parse(response.body.strip)["description"]
 end
-
-
-
