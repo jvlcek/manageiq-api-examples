@@ -12,6 +12,9 @@ is not to produce DRY, terse or slick ruby code.
 The examples require the shell environment variable `MIQ` to contain the IP
 Address or hostname of a ManageIQ instance.
 
+The `:id`s in the examples will need to be modified to match the configuration
+being exercised.
+
 All examples will have the following format:
 
 ```ruby
