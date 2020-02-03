@@ -12,9 +12,11 @@ http.use_ssl = true
 http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 request = Net::HTTP::Get.new(uri.request_uri)
+# request.basic_auth("admin", "smartvm")
 request.basic_auth("admin", "smartvm")
 
 response = http.request(request)
+raise("Api::AuthenticationError") if response.body.include?("Api::AuthenticationError")
 
 JSON.parse(response.body.strip)["resources"].each do |resource|
   uri = URI.parse(resource["href"].to_s)

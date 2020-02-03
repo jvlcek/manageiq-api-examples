@@ -28,5 +28,5 @@ JSON.parse(response.body.strip)["resources"].each do |resource|
 
   response = http.request(request)
 
-  puts uri.path.ljust(20) + JSON.parse(response.body.strip)["description"]
+  puts uri.path.ljust(33) + JSON.parse(response.body.strip)["description"]
 end
