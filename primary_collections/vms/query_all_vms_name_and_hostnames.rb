@@ -5,8 +5,7 @@ require 'net/http'
 require 'openssl'
 require 'uri'
 
-expand_resources="expand=resources&attributes=name,ipaddresses,power_state,description,hostnames"
-uri = URI.parse("https://#{ENV['MIQ']}/api/vms/?#{expand_resources}&filter[]=name='ManageIQ*'")
+uri = URI.parse("https://#{ENV['MIQ']}/api/vms?expand=resources&attributes=name,hostnames")
 
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
@@ -18,3 +17,4 @@ request.basic_auth("admin", "smartvm")
 response = http.request(request)
 
 puts "Reply:\n " + JSON.pretty_generate(JSON.parse(response.body.strip))
+
